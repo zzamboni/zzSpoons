@@ -1,0 +1,188 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowHalfsAndThirds",
+        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen",
+          "  * third_left, third_right - resize to one horizontal-third of the screen and move left/right",
+          "  * third_up, third_down - resize to one vertical-third of the screen and move up/down",
+          "  * max - maximize the window",
+          "  * max_toggle - toggle maximization",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen"
+        ],
+        "signature": "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:bindHotkeysToSpec(def, map)",
+        "desc": "Map a number of hotkeys according to a definition table",
+        "doc": "Map a number of hotkeys according to a definition table\n*** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.\n\nParameters:\n * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.\n * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.",
+        "name": "bindHotkeysToSpec",
+        "parameters": [
+          " * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.",
+          " * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced."
+        ],
+        "signature": "WindowHalfsAndThirds:bindHotkeysToSpec(def, map)",
+        "stripped_doc": "*** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WindowHalfsAndThirds.defaultHotkeys",
+        "desc": "Table containing a sample set of hotkeys that can be",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }",
+        "name": "defaultHotkeys",
+        "signature": "WindowHalfsAndThirds.defaultHotkeys",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowHalfsAndThirds.use_frame_correctness",
+        "desc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "doc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "name": "use_frame_correctness",
+        "signature": "WindowHalfsAndThirds.use_frame_correctness",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Simple window movement and resizing, focusing on half- and third-of-screen sizes",
+    "doc": "Simple window movement and resizing, focusing on half- and third-of-screen sizes\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip)",
+    "items": [
+      {
+        "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowHalfsAndThirds",
+        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen",
+          "  * third_left, third_right - resize to one horizontal-third of the screen and move left/right",
+          "  * third_up, third_down - resize to one vertical-third of the screen and move up/down",
+          "  * max - maximize the window",
+          "  * max_toggle - toggle maximization",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen"
+        ],
+        "signature": "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:bindHotkeysToSpec(def, map)",
+        "desc": "Map a number of hotkeys according to a definition table",
+        "doc": "Map a number of hotkeys according to a definition table\n*** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.\n\nParameters:\n * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.\n * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.",
+        "name": "bindHotkeysToSpec",
+        "parameters": [
+          " * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.",
+          " * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced."
+        ],
+        "signature": "WindowHalfsAndThirds:bindHotkeysToSpec(def, map)",
+        "stripped_doc": "*** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds.defaultHotkeys",
+        "desc": "Table containing a sample set of hotkeys that can be",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }",
+        "name": "defaultHotkeys",
+        "signature": "WindowHalfsAndThirds.defaultHotkeys",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowHalfsAndThirds.use_frame_correctness",
+        "desc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "doc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "name": "use_frame_correctness",
+        "signature": "WindowHalfsAndThirds.use_frame_correctness",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "WindowHalfsAndThirds",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowScreenLeftAndRight",
+        "doc": "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)"
+        ],
+        "signature": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WindowScreenLeftAndRight.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowScreenLeftAndRight.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Move windows to other screens",
+    "doc": "Move windows to other screens\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
+    "items": [
+      {
+        "def": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowScreenLeftAndRight",
+        "doc": "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)"
+        ],
+        "signature": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowScreenLeftAndRight.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowScreenLeftAndRight.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "WindowScreenLeftAndRight",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]
