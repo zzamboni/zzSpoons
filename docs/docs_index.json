@@ -218,6 +218,89 @@
     "type": "Method"
   },
   {
+    "desc": "Keep a history of the clipboard, only for text entries.",
+    "name": "TextClipboardHistory",
+    "type": "Module"
+  },
+  {
+    "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+    "module": "TextClipboardHistory",
+    "name": "frequency",
+    "type": "Variable"
+  },
+  {
+    "desc": "How many items to keep on history. Defaults to 100",
+    "module": "TextClipboardHistory",
+    "name": "hist_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
+    "module": "TextClipboardHistory",
+    "name": "honor_clearcontent",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "TextClipboardHistory",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+    "module": "TextClipboardHistory",
+    "name": "paste_on_select",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for TextClipboardHistory",
+    "module": "TextClipboardHistory",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+    "module": "TextClipboardHistory",
+    "name": "checkAndStorePasteboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the clipboard and history",
+    "module": "TextClipboardHistory",
+    "name": "clearAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the last added to the history",
+    "module": "TextClipboardHistory",
+    "name": "clearLastItem",
+    "type": "Method"
+  },
+  {
+    "desc": "Add the current contents of the pasteboard to the history",
+    "module": "TextClipboardHistory",
+    "name": "pasteboardToClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Display the current clipboard list in a chooser",
+    "module": "TextClipboardHistory",
+    "name": "showClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Start the clipboard history collector",
+    "module": "TextClipboardHistory",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
+    "module": "TextClipboardHistory",
+    "name": "togglePasteOnSelect",
+    "type": "Method"
+  },
+  {
     "desc": "Provide keybindings for muting/unmuting Skype or Skype for Business",
     "name": "ToggleSkypeMute",
     "type": "Module"
