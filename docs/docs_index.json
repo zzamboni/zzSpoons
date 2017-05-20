@@ -235,9 +235,15 @@
     "type": "Variable"
   },
   {
-    "desc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
+    "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
     "module": "TextClipboardHistory",
-    "name": "honor_clearcontent",
+    "name": "honor_ignoredidentifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+    "module": "TextClipboardHistory",
+    "name": "ignoredIdentifiers",
     "type": "Variable"
   },
   {

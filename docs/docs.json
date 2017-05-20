@@ -1062,11 +1062,20 @@
         "type": "Variable"
       },
       {
-        "def": "TextClipboardHistory.honor_clearcontent",
-        "desc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
-        "doc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
-        "name": "honor_clearcontent",
-        "signature": "TextClipboardHistory.honor_clearcontent",
+        "def": "TextClipboardHistory.honor_ignoredidentifiers",
+        "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "name": "honor_ignoredidentifiers",
+        "signature": "TextClipboardHistory.honor_ignoredidentifiers",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TextClipboardHistory.ignoredIdentifiers",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+        "name": "ignoredIdentifiers",
+        "signature": "TextClipboardHistory.ignoredIdentifiers",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -1151,11 +1160,20 @@
         "type": "Variable"
       },
       {
-        "def": "TextClipboardHistory.honor_clearcontent",
-        "desc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
-        "doc": "If any application (i.e. a password manager) clears the pasteboard, we also remove it from the history. Defaults to `true`",
-        "name": "honor_clearcontent",
-        "signature": "TextClipboardHistory.honor_clearcontent",
+        "def": "TextClipboardHistory.honor_ignoredidentifiers",
+        "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "name": "honor_ignoredidentifiers",
+        "signature": "TextClipboardHistory.honor_ignoredidentifiers",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TextClipboardHistory.ignoredIdentifiers",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+        "name": "ignoredIdentifiers",
+        "signature": "TextClipboardHistory.ignoredIdentifiers",
         "stripped_doc": "",
         "type": "Variable"
       },
