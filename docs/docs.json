@@ -968,11 +968,12 @@
       {
         "def": "TextClipboardHistory:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for TextClipboardHistory",
-        "doc": "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser",
+        "doc": "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * show_clipboard - Display the clipboard history chooser"
+          "  * show_clipboard - Display the clipboard history chooser",
+          "  * toggle_clipboard - Show/hide the clipboard history chooser"
         ],
         "signature": "TextClipboardHistory:bindHotkeys(mapping)",
         "stripped_doc": "",
@@ -1007,9 +1008,15 @@
       },
       {
         "def": "TextClipboardHistory.pasteboardToClipboard(item)",
-        "desc": "Add the current contents of the pasteboard to the history",
-        "doc": "Add the current contents of the pasteboard to the history",
+        "desc": "Add the given string to the history",
+        "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "name": "pasteboardToClipboard",
+        "parameters": [
+          " * item - string to add to the clipboard history"
+        ],
+        "returns": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory.pasteboardToClipboard(item)",
         "stripped_doc": "",
         "type": "Method"
@@ -1029,6 +1036,15 @@
         "doc": "Start the clipboard history collector",
         "name": "start",
         "signature": "TextClipboardHistory:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TextClipboardHistory:toggleClipboard()",
+        "desc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state",
+        "name": "toggleClipboard",
+        "signature": "TextClipboardHistory:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -1131,11 +1147,12 @@
       {
         "def": "TextClipboardHistory:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for TextClipboardHistory",
-        "doc": "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser",
+        "doc": "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * show_clipboard - Display the clipboard history chooser"
+          "  * show_clipboard - Display the clipboard history chooser",
+          "  * toggle_clipboard - Show/hide the clipboard history chooser"
         ],
         "signature": "TextClipboardHistory:bindHotkeys(mapping)",
         "stripped_doc": "",
@@ -1242,9 +1259,15 @@
       },
       {
         "def": "TextClipboardHistory.pasteboardToClipboard(item)",
-        "desc": "Add the current contents of the pasteboard to the history",
-        "doc": "Add the current contents of the pasteboard to the history",
+        "desc": "Add the given string to the history",
+        "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "name": "pasteboardToClipboard",
+        "parameters": [
+          " * item - string to add to the clipboard history"
+        ],
+        "returns": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory.pasteboardToClipboard(item)",
         "stripped_doc": "",
         "type": "Method"
@@ -1273,6 +1296,15 @@
         "doc": "Start the clipboard history collector",
         "name": "start",
         "signature": "TextClipboardHistory:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TextClipboardHistory:toggleClipboard()",
+        "desc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state",
+        "name": "toggleClipboard",
+        "signature": "TextClipboardHistory:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
       },

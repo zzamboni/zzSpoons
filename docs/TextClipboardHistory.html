@@ -43,6 +43,7 @@ Originally based on <a href="https://github.com/VFS/.hammerspoon/blob/master/too
             <li><a href="#pasteboardToClipboard">pasteboardToClipboard</a></li>
             <li><a href="#showClipboard">showClipboard</a></li>
             <li><a href="#start">start</a></li>
+            <li><a href="#toggleClipboard">toggleClipboard</a></li>
             <li><a href="#togglePasteOnSelect">togglePasteOnSelect</a></li>
           </ul>
       </ul>
@@ -239,6 +240,7 @@ Originally based on <a href="https://github.com/VFS/.hammerspoon/blob/master/too
 <ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>show_clipboard - Display the clipboard history chooser</li>
+<li>toggle_clipboard - Show/hide the clipboard history chooser</li>
 </ul>
 </li>
 </ul>
@@ -317,7 +319,15 @@ Originally based on <a href="https://github.com/VFS/.hammerspoon/blob/master/too
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Add the current contents of the pasteboard to the history</p>
+                <td><p>Add the given string to the history</p>
+<p>Parameters:</p>
+<ul>
+<li>item - string to add to the clipboard history</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
 </td>
               </tr>
             </table>
@@ -356,6 +366,25 @@ Originally based on <a href="https://github.com/VFS/.hammerspoon/blob/master/too
               <tr>
                 <th>Description</th>
                 <td><p>Start the clipboard history collector</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleClipboard">
+            <a name="//apple_ref/cpp/Method/toggleClipboard" class="dashAnchor"></a>
+            <h5><a href="#toggleClipboard">toggleClipboard</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TextClipboardHistory:toggleClipboard()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Show/hide the clipboard list, depending on its current state</p>
 </td>
               </tr>
             </table>

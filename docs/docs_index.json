@@ -301,7 +301,7 @@
     "type": "Method"
   },
   {
-    "desc": "Add the current contents of the pasteboard to the history",
+    "desc": "Add the given string to the history",
     "module": "TextClipboardHistory",
     "name": "pasteboardToClipboard",
     "type": "Method"
@@ -316,6 +316,12 @@
     "desc": "Start the clipboard history collector",
     "module": "TextClipboardHistory",
     "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Show/hide the clipboard list, depending on its current state",
+    "module": "TextClipboardHistory",
+    "name": "toggleClipboard",
     "type": "Method"
   },
   {
