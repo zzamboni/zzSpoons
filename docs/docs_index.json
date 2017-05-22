@@ -223,6 +223,12 @@
     "type": "Module"
   },
   {
+    "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+    "module": "TextClipboardHistory",
+    "name": "deduplicate",
+    "type": "Variable"
+  },
+  {
     "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
     "module": "TextClipboardHistory",
     "name": "frequency",
@@ -253,9 +259,21 @@
     "type": "Variable"
   },
   {
+    "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+    "module": "TextClipboardHistory",
+    "name": "menubar_title",
+    "type": "Variable"
+  },
+  {
     "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
     "module": "TextClipboardHistory",
     "name": "paste_on_select",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+    "module": "TextClipboardHistory",
+    "name": "show_in_menubar",
     "type": "Variable"
   },
   {

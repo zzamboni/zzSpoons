@@ -1044,6 +1044,15 @@
     ],
     "Variable": [
       {
+        "def": "TextClipboardHistory.deduplicate",
+        "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "name": "deduplicate",
+        "signature": "TextClipboardHistory.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "TextClipboardHistory.frequency",
         "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
         "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
@@ -1089,11 +1098,29 @@
         "type": "Variable"
       },
       {
+        "def": "TextClipboardHistory.menubar_title",
+        "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "doc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "name": "menubar_title",
+        "signature": "TextClipboardHistory.menubar_title",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "TextClipboardHistory.paste_on_select",
         "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "name": "paste_on_select",
         "signature": "TextClipboardHistory.paste_on_select",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TextClipboardHistory.show_in_menubar",
+        "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "name": "show_in_menubar",
+        "signature": "TextClipboardHistory.show_in_menubar",
         "stripped_doc": "",
         "type": "Variable"
       }
@@ -1142,6 +1169,15 @@
         "type": "Method"
       },
       {
+        "def": "TextClipboardHistory.deduplicate",
+        "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "name": "deduplicate",
+        "signature": "TextClipboardHistory.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "TextClipboardHistory.frequency",
         "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
         "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
@@ -1187,6 +1223,15 @@
         "type": "Variable"
       },
       {
+        "def": "TextClipboardHistory.menubar_title",
+        "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "doc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "name": "menubar_title",
+        "signature": "TextClipboardHistory.menubar_title",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "TextClipboardHistory.paste_on_select",
         "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
@@ -1203,6 +1248,15 @@
         "signature": "TextClipboardHistory.pasteboardToClipboard(item)",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "TextClipboardHistory.show_in_menubar",
+        "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "name": "show_in_menubar",
+        "signature": "TextClipboardHistory.show_in_menubar",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
         "def": "TextClipboardHistory:showClipboard()",
