@@ -1,5 +1,40 @@
 [
   {
+    "desc": "Show a color sample/picker",
+    "name": "ColorPicker",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "ColorPicker",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http://emojipedia.org/rainbow/)",
+    "module": "ColorPicker",
+    "name": "menubar_title",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, show an icon in the menubar to trigger the color picker",
+    "module": "ColorPicker",
+    "name": "show_in_menubar",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ColorPicker",
+    "module": "ColorPicker",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle display on the screen of a grid with all the colors in the given colortable",
+    "module": "ColorPicker",
+    "name": "toggleColorSamples",
+    "type": "Method"
+  },
+  {
     "desc": "Add some missing hotkeys for opening a note in Evernote, and for common tag sets",
     "name": "EvernoteOpenAndTag",
     "type": "Module"
@@ -44,6 +79,95 @@
     "desc": "Assigns tags to the currently-selected Evernote notes",
     "module": "EvernoteOpenAndTag",
     "name": "tagCurrentNote",
+    "type": "Method"
+  },
+  {
+    "desc": "Show a fading-and-zooming image in the center of the screen",
+    "name": "FadeLogo",
+    "type": "Module"
+  },
+  {
+    "desc": "Number of seconds over which to fade in the image. Defaults to 0.3.",
+    "module": "FadeLogo",
+    "name": "fade_in_time",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of seconds over which to fade out the image. Defaults to 0.5.",
+    "module": "FadeLogo",
+    "name": "fade_out_time",
+    "type": "Variable"
+  },
+  {
+    "desc": "Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromAppBundle('org.hammerspoon.Hammerspoon')` (the Hammerspoon app icon)",
+    "module": "FadeLogo",
+    "name": "image",
+    "type": "Variable"
+  },
+  {
+    "desc": "Initial transparency of the image. Defaults to 1.0.",
+    "module": "FadeLogo",
+    "name": "image_alpha",
+    "type": "Variable"
+  },
+  {
+    "desc": "`hs.geometry` object specifying the initial size of the image to display in the center of the screen. The image object will be resizes proportionally to fit in this size. Defaults to `hs.geometry.size(w=200, h=200)`",
+    "module": "FadeLogo",
+    "name": "image_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "FadeLogo",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of seconds to leave the image on the screen when `start()` is called.",
+    "module": "FadeLogo",
+    "name": "run_time",
+    "type": "Variable"
+  },
+  {
+    "desc": "Do zoom-and-fade if `true`, otherwise do a regular fade",
+    "module": "FadeLogo",
+    "name": "zoom",
+    "type": "Variable"
+  },
+  {
+    "desc": "Factor by which to scale the image at every iteration during the zoom-and-fade. Defaults to 1.1.",
+    "module": "FadeLogo",
+    "name": "zoom_scale_factor",
+    "type": "Variable"
+  },
+  {
+    "desc": "Seconds between the zooming iterations",
+    "module": "FadeLogo",
+    "name": "zoom_scale_timer",
+    "type": "Variable"
+  },
+  {
+    "desc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
+    "module": "FadeLogo",
+    "name": "hide",
+    "type": "Method"
+  },
+  {
+    "desc": "Display the image, fading it in over `fade_in_time` seconds",
+    "module": "FadeLogo",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Show the image, wait `run_time` seconds, and then fade it out.",
+    "module": "FadeLogo",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Zoom-and-fade the image over `fade_out_time` seconds",
+    "module": "FadeLogo",
+    "name": "zoom_and_fade",
     "type": "Method"
   },
   {
