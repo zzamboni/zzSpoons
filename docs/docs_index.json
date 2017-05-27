@@ -147,6 +147,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Hide and delete the canvas",
+    "module": "FadeLogo",
+    "name": "delete",
+    "type": "Method"
+  },
+  {
     "desc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
     "module": "FadeLogo",
     "name": "hide",
