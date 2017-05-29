@@ -5,3 +5,4 @@ mkdir -p .docs_tmp
 cp ./scripts/templates/{docs.css,jquery.js} .docs_tmp/html/
 mv .docs_tmp/html/* docs/
 mv .docs_tmp/docs{,_index}.json docs/
+rm -rf .docs_tmp
