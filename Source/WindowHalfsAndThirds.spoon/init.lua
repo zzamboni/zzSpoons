@@ -14,6 +14,11 @@ obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+--- WindowHalfsAndThirds.logger
+--- Variable
+--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
+obj.logger = hs.logger.new('WindowHalfsAndThirds')
+
 --- WindowHalfsAndThirds.defaultHotkeys
 --- Variable
 --- Table containing a sample set of hotkeys that can be
@@ -34,6 +39,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 ---     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
 ---  }
+--- ```
 obj.defaultHotkeys = {
    left_half   = { {"ctrl",        "cmd"}, "Left" },
    right_half  = { {"ctrl",        "cmd"}, "Right" },
@@ -57,12 +63,12 @@ obj.use_frame_correctness = false
 -- --------------------------------------------------------------------
 
 -- Internal functions to store/restore the current value of setFrameCorrectness.
-function _setFC()
+local function _setFC()
    obj._savedFC = hs.window.setFrameCorrectness
    hs.window.setFrameCorrectness = obj.use_frame_correctness
 end
 
-function _restoreFC()
+local function _restoreFC()
    hs.window.setFrameCorrectness = obj._savedFC
 end
 
@@ -130,8 +136,6 @@ function get_horizontal_third(win)
    local screenframe=win:screen():frame()
    local relframe=hs.geometry(frame.x-screenframe.x, frame.y-screenframe.y, frame.w, frame.h)
    local third = math.floor(3.01*relframe.x/screenframe.w)
-   omh.logger.df("Screen frame: %s", screenframe)
-   omh.logger.df("Window frame: %s, relframe %s is in horizontal third #%d", frame, relframe, third)
    return third
 end
 
@@ -144,8 +148,6 @@ function get_vertical_third(win)
    local screenframe=win:screen():frame()
    local relframe=hs.geometry(frame.x-screenframe.x, frame.y-screenframe.y, frame.w, frame.h)
    local third = math.floor(3.01*relframe.y/screenframe.h)
-   omh.logger.df("Screen frame: %s", screenframe)
-   omh.logger.df("Window frame: %s, relframe %s is in vertical third #%d", frame, relframe, third)
    return third
 end
 
@@ -197,28 +199,6 @@ function obj.onethirdDown()
    end
 end
 
---- WindowHalfsAndThirds:bindHotkeysToSpec(def, map)
---- Method
---- Map a number of hotkeys according to a definition table
---- *** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.
----
---- Parameters:
----  * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.
----  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.
-function obj:bindHotkeysToSpec(def,map)
-   for name,key in pairs(map) do
-      if def[name] ~= nil then
-         if self._keys[name] then
-            self._keys[name]:delete()
-         end
-         self._keys[name]=hs.hotkey.bindSpec(key, def[name])
-      else
-         self.logger.ef("Error: Hotkey requested for undefined action '%s'", name)
-      end
-   end
-   return self
-end
-
 --- WindowHalfsAndThirds:bindHotkeys(mapping)
 --- Method
 --- Binds hotkeys for WindowHalfsAndThirds
@@ -254,15 +234,13 @@ function obj:bindHotkeys(mapping)
       middle_third_h = self.middleThirdH,
       right_third = self.rightThird,
    }
-   self:bindHotkeysToSpec(hotkeyDefinitions, mapping)
+   hs.spoons.bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
 end
 
 function obj:init()
    -- Window cache for window maximize toggler
    self._frameCache = {}
-   -- Cache for bound keys
-   self._keys = {}
 end
 
 return obj
