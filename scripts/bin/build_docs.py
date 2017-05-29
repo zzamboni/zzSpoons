@@ -39,6 +39,8 @@ LINKS = [
      "url": "https://github.com/zzamboni/zzSpoons"},
     {"name": "Official Spoon repository",
      "url": "http://www.hammerspoon.org/Spoons"},
+    {"name": "Spoon pull requests",
+     "url": "https://github.com/Hammerspoon/Spoons/pulls"},
     {"name": "zzamboni's Hammerspoon config",
      "url": "https://github.com/zzamboni/dot-hammerspoon"},
     {"name": "Hammerspoon Website",
