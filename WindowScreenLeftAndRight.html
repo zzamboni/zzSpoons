@@ -23,6 +23,7 @@
       <ul>
         <li>Variables - Configurable values</li>
           <ul>
+            <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
             <li><a href="#logger">logger</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
@@ -32,6 +33,34 @@
       </ul>
       <h3>API Documentation</h3>
         <h4 class="documentation-section">Variables</h4>
+          <section id="defaultHotkeys">
+            <a name="//apple_ref/cpp/Variable/defaultHotkeys" class="dashAnchor"></a>
+            <h5><a href="#defaultHotkeys">defaultHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowScreenLeftAndRight.defaultHotkeys</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing a sample set of hotkeys that can be
+assigned to the different operations. These are not bound
+by default - if you want to use them you have to call:
+<code>spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)</code>
+after loading the spoon. Value:
+```
+ {
+    screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
+    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
+ }</p>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="logger">
             <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
             <h5><a href="#logger">logger</a></h5>

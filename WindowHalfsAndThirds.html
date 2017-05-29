@@ -51,12 +51,20 @@
                 <td><p>Table containing a sample set of hotkeys that can be
 assigned to the different operations. These are not bound
 by default - if you want to use them you have to call:
-<code>spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)</code>
+<code>spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)</code>
 after loading the spoon. Value:
 ```
  {
-    screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
-    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
+    left_half   = { {"ctrl",        "cmd"}, "Left" },
+    right_half  = { {"ctrl",        "cmd"}, "Right" },
+    top_half    = { {"ctrl",        "cmd"}, "Up" },
+    bottom_half = { {"ctrl",        "cmd"}, "Down" },
+    third_left  = { {"ctrl", "alt"       }, "Left" },
+    third_right = { {"ctrl", "alt"       }, "Right" },
+    third_up    = { {"ctrl", "alt"       }, "Up" },
+    third_down  = { {"ctrl", "alt"       }, "Down" },
+    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
+    max         = { {"ctrl", "alt", "cmd"}, "Up" },
  }</p>
 </td>
               </tr>
