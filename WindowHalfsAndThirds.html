@@ -24,12 +24,12 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
+            <li><a href="#logger">logger</a></li>
             <li><a href="#use_frame_correctness">use_frame_correctness</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
             <li><a href="#bindHotkeys">bindHotkeys</a></li>
-            <li><a href="#bindHotkeysToSpec">bindHotkeysToSpec</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
@@ -52,9 +52,9 @@
 assigned to the different operations. These are not bound
 by default - if you want to use them you have to call:
 <code>spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)</code>
-after loading the spoon. Value:
-```
- {
+after loading the spoon. Value:</p>
+
+<pre><code> {
     left_half   = { {"ctrl",        "cmd"}, "Left" },
     right_half  = { {"ctrl",        "cmd"}, "Right" },
     top_half    = { {"ctrl",        "cmd"}, "Up" },
@@ -65,7 +65,26 @@ after loading the spoon. Value:
     third_down  = { {"ctrl", "alt"       }, "Down" },
     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
     max         = { {"ctrl", "alt", "cmd"}, "Up" },
- }</p>
+ }</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
 </td>
               </tr>
             </table>
@@ -118,31 +137,6 @@ after loading the spoon. Value:
 <li>left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen</li>
 </ul>
 </li>
-</ul>
-</td>
-              </tr>
-            </table>
-          </section>
-          <section id="bindHotkeysToSpec">
-            <a name="//apple_ref/cpp/Method/bindHotkeysToSpec" class="dashAnchor"></a>
-            <h5><a href="#bindHotkeysToSpec">bindHotkeysToSpec</a></h5>
-            <table>
-              <tr>
-                <th>Signature</th>
-                <td><code>WindowHalfsAndThirds:bindHotkeysToSpec(def, map)</code></td>
-              </tr>
-              <tr>
-                <th>Type</th>
-                <td>Method</td>
-              </tr>
-              <tr>
-                <th>Description</th>
-                <td><p>Map a number of hotkeys according to a definition table
-*** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.</p>
-<p>Parameters:</p>
-<ul>
-<li>def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.</li>
-<li>map - table containing name-to-hotkey definitions, as supported by <a href="https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys">bindHotkeys in the Spoon API</a>. Not all the entries in <code>def</code> must be bound, but if any keys in <code>map</code> don't have a definition, an error will be produced.</li>
 </ul>
 </td>
               </tr>
