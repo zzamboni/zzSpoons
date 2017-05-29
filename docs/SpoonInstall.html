@@ -15,7 +15,7 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; SpoonInstall</h1>
-      <p>Install and manage Spoons</p>
+      <p>Install and manage Spoons and Spoon repositories</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip</a></p>
 
       </header>
@@ -88,7 +88,7 @@ is a table with the following entries:</p>
 <pre><code>{
    default = {
       url = "https://github.com/Hammerspoon/Spoons",
-      desc = "Main Hammerspoon Spoons repo",
+      desc = "Main Hammerspoon Spoon repository",
    }
 }</code></pre>
 </td>
@@ -111,7 +111,7 @@ is a table with the following entries:</p>
                 <th>Description</th>
                 <td><p>If <code>true</code>, <code>andUse()</code> will update repos and install packages synchronously. Defaults to <code>false</code>.</p>
 <p>Keep in mind that if you set this to <code>true</code>, Hammerspoon will
-block until all missing Spoons are installed, but the notification
+block until all missing Spoons are installed, but the notifications
 will happen at a more "human readable" rate.</p>
 </td>
               </tr>
@@ -172,7 +172,7 @@ will happen at a more "human readable" rate.</p>
                 <td><p>Asynchronously install a Spoon from a registered repository</p>
 <p>Parameters:</p>
 <ul>
-<li>name = Name of the Spoon to install.</li>
+<li>name - Name of the Spoon to install.</li>
 <li>repo - Name of the repository to use. Defaults to <code>"default"</code></li>
 <li>callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:<ul>
 <li>urlparts - Result of calling <code>hs.http.urlParts</code> on the URL of the Spoon zip file</li>
@@ -234,7 +234,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously fetch and store locally the information about the contents of a Spoons repository</p>
+                <td><p>Asynchronously fetch the information about the contents of a Spoon repository</p>
 <p>Parameters:</p>
 <ul>
 <li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
@@ -247,6 +247,10 @@ will happen at a more "human readable" rate.</p>
 <p>Returns:</p>
 <ul>
 <li><code>true</code> if the update was correctly initiated (i.e. the repo name is valid), <code>nil</code> otherwise</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>
@@ -286,7 +290,7 @@ will happen at a more "human readable" rate.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>SpoonInstall:installSpoonFromZipURL(url, callback)</code></td>
+                <td><code>SpoonInstall:installSpoonFromZipURL(url)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -380,7 +384,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously fetch and store locally the information about the contents of all registered Spoons repositories</p>
+                <td><p>Synchronously fetch the information about the contents of all Spoon repositories registered in <code>SpoonInstall.repos</code></p>
 <p>Parameters:</p>
 <ul>
 <li>None</li>
@@ -392,6 +396,7 @@ will happen at a more "human readable" rate.</p>
 <p>Notes:</p>
 <ul>
 <li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes.</li>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>
@@ -411,7 +416,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously fetch and store locally the information about the contents of a Spoons repository</p>
+                <td><p>Synchronously fetch the information about the contents of a Spoon repository</p>
 <p>Parameters:</p>
 <ul>
 <li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
@@ -423,6 +428,7 @@ will happen at a more "human readable" rate.</p>
 <p>Notes:</p>
 <ul>
 <li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes. For use in your configuration files, it's advisable to use <code>SpoonInstall.asyncUpdateRepo()</code> instead.</li>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>

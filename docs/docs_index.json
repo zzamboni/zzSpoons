@@ -70,7 +70,7 @@
     "type": "Method"
   },
   {
-    "desc": "Open the currently-selected Evernote notes new windows",
+    "desc": "Open the currently-selected Evernote notes in new windows.",
     "module": "EvernoteOpenAndTag",
     "name": "openCurrentNoteInWindow",
     "type": "Method"
@@ -99,7 +99,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromAppBundle('org.hammerspoon.Hammerspoon')` (the Hammerspoon app icon)",
+    "desc": "Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)` (the Hammerspoon app icon)",
     "module": "FadeLogo",
     "name": "image",
     "type": "Variable"
@@ -165,7 +165,7 @@
     "type": "Method"
   },
   {
-    "desc": "Show the image, wait `run_time` seconds, and then fade it out.",
+    "desc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.",
     "module": "FadeLogo",
     "name": "start",
     "type": "Method"
@@ -265,7 +265,7 @@
     "type": "Method"
   },
   {
-    "desc": "Install and manage Spoons",
+    "desc": "Install and manage Spoons and Spoon repositories",
     "name": "SpoonInstall",
     "type": "Module"
   },
@@ -306,7 +306,7 @@
     "type": "Method"
   },
   {
-    "desc": "Asynchronously fetch and store locally the information about the contents of a Spoons repository",
+    "desc": "Asynchronously fetch the information about the contents of a Spoon repository",
     "module": "SpoonInstall",
     "name": "asyncUpdateRepo",
     "type": "Method"
@@ -336,19 +336,19 @@
     "type": "Method"
   },
   {
-    "desc": "Synchronously fetch and store locally the information about the contents of all registered Spoons repositories",
+    "desc": "Synchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`",
     "module": "SpoonInstall",
     "name": "updateAllRepos",
     "type": "Method"
   },
   {
-    "desc": "Synchronously fetch and store locally the information about the contents of a Spoons repository",
+    "desc": "Synchronously fetch the information about the contents of a Spoon repository",
     "module": "SpoonInstall",
     "name": "updateRepo",
     "type": "Method"
   },
   {
-    "desc": "Keep a history of the clipboard, only for text entries.",
+    "desc": "Keep a history of the clipboard, only for text entries",
     "name": "TextClipboardHistory",
     "type": "Module"
   },
@@ -377,7 +377,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua",
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
     "module": "TextClipboardHistory",
     "name": "ignoredIdentifiers",
     "type": "Variable"
@@ -437,6 +437,12 @@
     "type": "Method"
   },
   {
+    "desc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+    "module": "TextClipboardHistory",
+    "name": "shouldBeStored",
+    "type": "Method"
+  },
+  {
     "desc": "Display the current clipboard list in a chooser",
     "module": "TextClipboardHistory",
     "name": "showClipboard",
@@ -469,6 +475,12 @@
     "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
     "module": "ToggleSkypeMute",
     "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+    "module": "ToggleSkypeMute",
+    "name": "notifications",
     "type": "Variable"
   },
   {
