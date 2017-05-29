@@ -7,5 +7,5 @@ rm -rf .newdocs && \
     rmdir .newdocs && \
     git add . && \
     git ci -a -m 'Updated docs' && \
-    git push && \
-    git co master
+    git push
+git co master
