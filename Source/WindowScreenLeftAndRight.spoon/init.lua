@@ -19,7 +19,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('WindowScreenLeftAndRight')
 
---- WindowHalfsAndThirds.defaultHotkeys
+--- WindowScreenLeftAndRight.defaultHotkeys
 --- Variable
 --- Table containing a sample set of hotkeys that can be
 --- assigned to the different operations. These are not bound
