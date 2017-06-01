@@ -513,6 +513,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Process the rules and execute any actions corresponding to the specified transition.",
+    "module": "WiFiTransitions",
+    "name": "processTransition",
+    "type": "Method"
+  },
+  {
     "desc": "Start the WiFi watcher",
     "module": "WiFiTransitions",
     "name": "start",
