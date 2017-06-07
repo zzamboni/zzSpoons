@@ -1,7 +1,7 @@
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hammerspoon docs: HeadphoneWatcher</title>
+    <title>Hammerspoon docs: HeadphoneAutoPause</title>
     <style type="text/css">
       a { text-decoration: none; }
       a:hover { text-decoration: underline; }
@@ -14,9 +14,9 @@
   </head>
   <body>
     <header>
-      <h1><a href="./index.html">docs</a> &raquo; HeadphoneWatcher</h1>
+      <h1><a href="./index.html">docs</a> &raquo; HeadphoneAutoPause</h1>
       <p>Play/pause music players when headphones are connected/disconnected</p>
-<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneWatcher.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneWatcher.spoon.zip</a></p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip</a></p>
 
       </header>
       <h3>API Overview</h3>
@@ -43,7 +43,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher.control</code></td>
+                <td><code>HeadphoneAutoPause.control</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -51,7 +51,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</p>
+                <td><p>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</p>
 
 <pre><code>{
    itunes = true,
@@ -69,7 +69,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher.controlfns</code></td>
+                <td><code>HeadphoneAutoPause.controlfns</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -78,7 +78,7 @@
               <tr>
                 <th>Description</th>
                 <td><p>Table containing control functions for each application to control.
-The keys must correspond to the values in <code>HeadphoneWatcher.control</code>, and the value is a table with the following elements:</p>
+The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:</p>
 <ul>
 <li><code>appname</code> - application name (case-sensitive, as the application appears to the system)</li>
 <li><code>isPlaying</code> - function that returns a true value if the application is playing</li>
@@ -96,7 +96,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher.logger</code></td>
+                <td><code>HeadphoneAutoPause.logger</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -116,7 +116,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher:audiodevwatch(dev_uid, event_name)</code></td>
+                <td><code>HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -135,7 +135,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher.defaultControlFns(app)</code></td>
+                <td><code>HeadphoneAutoPause.defaultControlFns(app)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -150,7 +150,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
 </ul>
 <p>Returns:</p>
 <ul>
-<li>A table in the correct format for <code>HeadphoneWatcher.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = "iTunes", the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
+<li>A table in the correct format for <code>HeadphoneAutoPause.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = "iTunes", the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
 </ul>
 </td>
               </tr>
@@ -162,7 +162,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher:start()</code></td>
+                <td><code>HeadphoneAutoPause:start()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -181,7 +181,7 @@ The keys must correspond to the values in <code>HeadphoneWatcher.control</code>,
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>HeadphoneWatcher:stop()</code></td>
+                <td><code>HeadphoneAutoPause:stop()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
