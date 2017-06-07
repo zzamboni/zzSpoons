@@ -9,7 +9,7 @@ all: $(SPOONS)
 clean:
 	rm -f $(ZIPDIR)/*.zip
 
-$(ZIPDIR)/%.zip: $(SRCDIR)/%/*
+$(ZIPDIR)/%.zip: $(SRCDIR)/%
 	rm -f $@
 	cd $(SRCDIR) ; $(ZIP) -9 -r ../$@ $(patsubst $(SRCDIR)/%, %, $<)
 
