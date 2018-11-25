@@ -28,6 +28,14 @@ obj.auto_reload_config = true
 --- If true, install the `hs` command line tool
 obj.install_cli = true
 
+--- Hammer.spoon_action_mappings
+--- Variable
+--- Table containing mappings from action names to functions, for binding hotkeys and BTT triggers
+obj.spoon_action_mappings = {
+  config_reload = function() hs.reload() end,
+  toggle_console = hs.toggleConsole,
+}
+
 --- Hammer:reloadConfig()
 --- Method
 --- Manually reload configuration (wrapper around `hs.reload`)
@@ -60,18 +68,7 @@ end
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * config_reload - Manually trigger a config reload
 function obj:bindHotkeys(mapping)
-   if mapping["config_reload"] then
-      if (self.key_reload_config) then
-         self.key_reload_config:delete()
-      end
-      self.key_reload_config = hs.hotkey.bindSpec(mapping["config_reload"], function() self:reloadConfig() end)
-   end
-   if mapping["toggle_console"] then
-      if (self.key_toggle_console) then
-         self.key_toggle_console:delete()
-      end
-      self.key_toggle_console = hs.hotkey.bindSpec(mapping["toggle_console"], hs.toggleConsole)
-   end
+  hs.spoons.bindHotkeysToSpec(obj.spoon_action_mappings, mapping)
 end
 
 --- Hammer:start()
