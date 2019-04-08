@@ -78,7 +78,7 @@
       }
     ],
     "desc": "Automate some Hammerspoon configuration tasks",
-    "doc": "Automate some Hammerspoon configuration tasks\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip)",
+    "doc": "Automate some Hammerspoon configuration tasks\n\nDownload: https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Hammer.spoon.zip",
     "items": [
       {
         "def": "Hammer.auto_reload_config",
@@ -149,7 +149,7 @@
       }
     ],
     "name": "Hammer",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip)",
+    "stripped_doc": "\nDownload: https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Hammer.spoon.zip",
     "submodules": [],
     "type": "Module"
   },
@@ -308,7 +308,7 @@
       }
     ],
     "desc": "Spoon to track and notify about Leanpub builds.",
-    "doc": "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "doc": "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip",
     "items": [
       {
         "def": "Leanpub.api_key",
@@ -455,7 +455,7 @@
       }
     ],
     "name": "Leanpub",
-    "stripped_doc": "\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "stripped_doc": "\nDownload:\nhttps://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip",
     "submodules": [],
     "type": "Module"
   }

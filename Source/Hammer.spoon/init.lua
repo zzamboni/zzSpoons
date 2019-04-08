@@ -2,7 +2,7 @@
 ---
 --- Automate some Hammerspoon configuration tasks
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Hammer.spoon.zip)
+--- Download: https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Hammer.spoon.zip
 
 local obj={}
 obj.__index = obj
