@@ -3,11 +3,24 @@
 --- A spoon to load/unload the Turbo Boost Disable kernel extension
 --- from https://github.com/rugarciap/Turbo-Boost-Switcher.
 ---
---- Note: this uses sudo to load/unload the kernel extension, so for it
---- to work from Hammerspoon, you need to configure sudo to be able to
---- load/unload the extension without a password, or configure the
---- load_kext_cmd and unload_kext_cmd variables to use some other
---- mechanism that prompts you for the credentials.
+--- Note: this spoon by default uses sudo to load/unload the kernel
+--- extension, so for it to work from Hammerspoon, you need to
+--- configure sudo to be able to load/unload the extension without a
+--- password, or configure the load_kext_cmd and unload_kext_cmd
+--- variables to use some other mechanism that prompts you for the
+--- credentials.
+---
+--- For example, the following configuration (stored in
+--- /etc/sudoers.d/turboboost) can be used to allow loading and
+--- unloading the module without a password:
+--- ```
+--- Cmnd_Alias    TURBO_OPS = /sbin/kextunload /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext, /usr/bin/kextutil /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext
+---
+--- %admin ALL=(ALL) NOPASSWD: TURBO_OPS
+--- ```
+---
+--- If you use this, please support the author of Turbo Boost Disabler
+--- by purchasing the Pro version of the app!
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip)
 
@@ -52,7 +65,7 @@ obj.kext_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/Disab
 --- (e.g. with sudo) to run without prompting. The string "%s" in this
 --- variable gets replaced with the value of
 --- TurboBoost.kext_path
-obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil -v '%s'"
+obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil '%s'"
 
 --- TurboBoost.unload_kext_cmd
 --- Variable
@@ -62,7 +75,7 @@ obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil -v '%s'"
 --- (e.g. with sudo) to run without prompting. The string "%s" in this
 --- variable gets replaced with the value of
 --- TurboBoost.kext_path
-obj.unload_kext_cmd = "/usr/bin/sudo /sbin/kextunload -v '%s'"
+obj.unload_kext_cmd = "/usr/bin/sudo /sbin/kextunload '%s'"
 
 --- TurboBoost.check_kext_cmd
 --- Variable
@@ -225,9 +238,9 @@ function obj.clicked()
   obj:setDisplay(obj:toggle())
 end
 
---- This function is called when the machine wakes up and, if the
---- module was loaded, it unloads/reloads it to disable Turbo Boost
---- again
+-- This function is called when the machine wakes up and, if the
+-- module was loaded, it unloads/reloads it to disable Turbo Boost
+-- again
 function obj.wokeUp(event)
   obj.logger.df("In obj.wokeUp, event = %d\n", event)
   if event == hs.caffeinate.watcher.systemDidWake then
