@@ -3,7 +3,7 @@
 --- A spoon to load/unload the Turbo Boost Disable kernel extension
 --- from https://github.com/rugarciap/Turbo-Boost-Switcher.
 ---
---- Note: this uses sudo to load/unlos the kernel extension, so for it
+--- Note: this uses sudo to load/unload the kernel extension, so for it
 --- to work from Hammerspoon, you need to configure sudo to be able to
 --- load/unload the extension without a password, or configure the
 --- load_kext_cmd and unload_kext_cmd variables to use some other
@@ -27,6 +27,17 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 obj.logger = hs.logger.new('TurboBoost')
 
 obj.menuBarItem = nil
+obj.wakeupWatcher = nil
+
+--- TurboBoost.disable_on_start
+--- Variable
+--- Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.
+obj.disable_on_start = false
+
+--- TurboBoost.reenable_on_stop
+--- Variable
+--- Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.
+obj.reenable_on_stop = true
 
 --- TurboBoost.kext_path
 --- Variable
@@ -99,6 +110,7 @@ function obj:setState(state, notify)
     if state then
       cmd = string.format(obj.unload_kext_cmd, obj.kext_path)
     end
+    self.logger.df("Will execute command '%s'", cmd)
     if notify == nil then
       notify = obj.notify
     end
@@ -151,7 +163,7 @@ end
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * hello - Say Hello
 function obj:bindHotkeys(mapping)
-  local spec = { toggle = self.toggle }
+  local spec = { toggle = hs.fnutils.partial(self.toggle, self) }
   hs.spoons.bindHotkeysToSpec(spec, mapping)
 end
 
@@ -165,11 +177,14 @@ end
 --- Returns:
 ---  * The TurboBoost object
 function obj:start()
-    if self.menuBarItem then self:stop() end
+    if self.menuBarItem or self.wakeupWatcher then self:stop() end
     self.menuBarItem = hs.menubar.new()
     self.menuBarItem:setClickCallback(self.clicked)
     self:setDisplay(self:status())
-
+    self.wakeupWatcher = hs.caffeinate.watcher.new(self.wokeUp):start()
+    if self.disable_on_start then
+      self:setState(false)
+    end
     return self
 end
 
@@ -183,9 +198,15 @@ end
 --- Returns:
 ---  * The TurboBoost object
 function obj:stop()
-    if self.menuBarItem then self.menuBarItem:delete() end
-    self.menuBarItem = nil
-    return self
+  if self.reenable_on_stop then
+    self:setState(true)
+  end
+  if self.menuBarItem then self.menuBarItem:delete() end
+  self.menuBarItem = nil
+  if self.wakeupWatcher then self.wakeupWatcher:stop() end
+  self.wakeupWatcher = nil
+
+  return self
 end
 
 function obj.iconPathForState(state)
@@ -200,8 +221,24 @@ function obj:setDisplay(state)
   obj.menuBarItem:setIcon(obj.iconPathForState(state))
 end
 
-function obj:clicked()
+function obj.clicked()
   obj:setDisplay(obj:toggle())
+end
+
+--- This function is called when the machine wakes up and, if the
+--- module was loaded, it unloads/reloads it to disable Turbo Boost
+--- again
+function obj.wokeUp(event)
+  obj.logger.df("In obj.wokeUp, event = %d\n", event)
+  if event == hs.caffeinate.watcher.systemDidWake then
+    obj.logger.d("  Received systemDidWake event!\n")
+    if not obj:status() then
+      obj.logger.d("  Toggling TurboBoost on and back off\n")
+      obj:toggle()
+      hs.timer.usleep(20000)
+      obj:toggle()
+    end
+  end
 end
 
 return obj
