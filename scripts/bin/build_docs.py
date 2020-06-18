@@ -10,6 +10,7 @@ import pprint
 import sqlite3
 import string
 import sys
+import re
 
 DEBUG = False
 
@@ -30,24 +31,27 @@ TYPE_DESC = {
         "Constructor": "API calls which return an object, typically one "
                        "that offers API methods",
         "Command": "External shell commands",
-        "Field": "Variables which can only be access from an object returned "
+        "Field": "Variables which can only be accessed from an object returned "
                  "by a constructor",
         "Deprecated": "API features which will be removed in an future "
                       "release"}
 LINKS = [
-    {"name": "zzSpoons GitHub repository",
-     "url": "https://github.com/zzamboni/zzSpoons"},
-    {"name": "Official Spoon repository",
-     "url": "http://www.hammerspoon.org/Spoons"},
-    {"name": "Spoon pull requests",
-     "url": "https://github.com/Hammerspoon/Spoons/pulls"},
-    {"name": "zzamboni's Hammerspoon config",
-     "url": "https://github.com/zzamboni/dot-hammerspoon"},
-    {"name": "Hammerspoon Website",
-     "url": "http://www.hammerspoon.org/"},
-    {"name": "Spoon Plugin Documentation",
-     "url": "https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md"},
-]
+        {"name": "Website", "url": "http://www.hammerspoon.org/"},
+        {"name": "GitHub page",
+         "url": "https://github.com/Hammerspoon/hammerspoon"},
+        {"name": "Getting Started Guide",
+         "url": "http://www.hammerspoon.org/go/"},
+        {"name": "Spoon Plugin Documentation",
+         "url": "https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md"},
+        {"name": "Official Spoon repository",
+         "url": "http://www.hammerspoon.org/Spoons"},
+        {"name": "IRC channel",
+         "url": "irc://chat.freenode.net/#hammerspoon"},
+        {"name": "Mailing list",
+         "url": "https://groups.google.com/forum/#!forum/hammerspoon/"},
+        {"name": "LuaSkin API docs",
+         "url": "http://www.hammerspoon.org/docs/LuaSkin/"}
+        ]
 
 ARGUMENTS = None
 
@@ -85,7 +89,10 @@ def extract_docstrings(filename):
     with open(filename, "r") as filedata:
         for raw_line in filedata.readlines():
             i += 1
-            line = raw_line.decode('utf-8').strip('\n')
+            try:
+                line = raw_line.decode('utf-8').strip('\n')
+            except UnicodeDecodeError:
+                err("Unable to decode: %s" % raw_line)
             if line.startswith("----") or line.startswith("////"):
                 dbg("Skipping %s:%d - too many comment chars" % (filename, i))
                 continue
@@ -138,7 +145,10 @@ def find_module_for_item(modules, item):
 
         matches.sort()
         dbg("find_module_for_item: Found options: %s" % matches)
-        module = matches[-1]
+        try:
+            module = matches[-1]
+        except IndexError:
+            err("Unable to find module for: %s" % item)
 
     dbg("find_module_for_item: Found: %s" % module)
     return module
@@ -146,7 +156,7 @@ def find_module_for_item(modules, item):
 
 def find_itemname_from_signature(signature):
     """Find the name of an item, from a full signature"""
-    return ''.join(signature.split('(')[0])
+    return ''.join(re.split(r"[\(\[\s]", signature)[0])
 
 
 def remove_method_from_itemname(itemname):
@@ -443,11 +453,14 @@ def write_sql(filepath, data):
                     "'Module', '%(modname)s.html');" %
                     {"modname": module["name"]})
         for item in module["items"]:
-            cur.execute("INSERT INTO searchIndex VALUES(NULL, "
-                        "'%(modname)s.%(itemname)s', "
-                        "'%(itemtype)s', '%(modname)s.html#%(itemname)s');" %
-                        {"modname": module["name"], "itemname": item["name"],
-                         "itemtype": item["type"]})
+            try:
+                cur.execute("INSERT INTO searchIndex VALUES(NULL, "
+                            "'%(modname)s.%(itemname)s', "
+                            "'%(itemtype)s', '%(modname)s.html#%(itemname)s');" %
+                            {"modname": module["name"], "itemname": item["name"],
+                             "itemtype": item["type"]})
+            except:
+                err("DB Insert failed on %s:%s(%s)" % (module["name"], item["name"], item["type"]))
 
     cur.execute("VACUUM;")
     db.commit()
